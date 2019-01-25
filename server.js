@@ -8,8 +8,8 @@ var bodyParser = require('body-parser');
 var connection = mysql.createConnection({
   host     : 'localhost', //mysql database host name
   user     : 'root', //mysql database user name
-  password : '', //mysql database password
-  database : 'test' //mysql database name
+  password : 'root', //mysql database password
+  database : 'mysqlemp' //mysql database name
 });
 
 connection.connect(function(err) {
@@ -37,8 +37,17 @@ var server = app.listen(8081,  "0.0.0.0", function () {
 
 //rest api to get all customers
 app.get('/app/employee', function (req, res) {
-   connection.query('select * from employee', function (error, results, fields) {
-	  if (error) throw error;
+   results = []
+   emp1 = {"id":12,"name":"krishna","age":27,"dept":"sdn"}
+   emp2 = {"id":13,"name":"varun","age":27,"dept":"sdn"}
+   emp3 = {"id":14,"name":"bhuvana","age":27,"dept":"sdn"}
+   emp4 = {"id":15,"name":"saptha","age":27,"dept":"sdn"}
+   results.push(emp1)
+   results.push(emp2)
+   results.push(emp3)
+   results.push(emp4)
+   //connection.query('select * from employee', function (error, results, fields) {
+	//  if (error) throw error;
 	  res.end(JSON.stringify(results));
 	});
 });
