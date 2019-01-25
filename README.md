@@ -1,5 +1,5 @@
 # noderest1
-   41  docker ps
+   41  docker ps1
    42  docker stop 2febb59887ab
    43  docker rm 2febb59887ab
    44  docker build -t krishnavardhireddy/node-web-app1 .
